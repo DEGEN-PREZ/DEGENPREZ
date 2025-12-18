@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEGEN PREZ - A Memecoin Inpired To Help</title>
+    <title>DEGEN PREZ - A Memecoin Inspired To Help</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
             background-image: url('https://raw.githubusercontent.com/DEGEN-PREZ/DEGENPREZ/main/Screenshot_20251129_233300_Chrome.jpg');
             background-size: cover;
             background-position: center;
@@ -19,99 +26,395 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
         }
-        .overlay {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 800px;
-            margin: 20px;
-        }
-        .logo {
-            max-width: 300px;
+
+        /* Animated background overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-            border-radius: 50%;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Gold glow for crypto vibe */
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(20,20,40,0.8) 100%);
+            z-index: -1;
         }
-        h1 {
-            font-size: 3em;
-            margin: 0 0 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            color: #FFD700; /* Gold for degen energy */
-        }
-        p {
-            font-size: 1.2em;
-            line-height: 1.5;
-            margin: 10px 0;
-        }
-        .ca {
-            background: rgba(0, 255, 0, 0.2);
-            padding: 10px;
-            border-radius: 5px;
-            font-family: monospace;
-            font-size: 1.1em;
-            word-break: break-all;
-            margin: 20px 0;
-        }
-        .cta-button {
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-            color: black;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            margin: 10px;
-            display: inline-block;
-            transition: transform 0.3s;
-        }
-        .cta-button:hover {
-            transform: scale(1.05);
-        }
-        .section {
-            margin: 40px 0;
+
+        .container {
+            max-width: 900px;
             padding: 20px;
-            background: rgba(0,0,0,0.4);
-            border-radius: 10px;
-            max-width: 600px;
+            width: 100%;
         }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            box-shadow: 
+                0 0 30px rgba(255, 215, 0, 0.4),
+                0 0 60px rgba(255, 215, 0, 0.2);
+            margin-bottom: 30px;
+            animation: pulse 3s ease-in-out infinite;
+            border: 4px solid rgba(255, 215, 0, 0.5);
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.4), 0 0 60px rgba(255, 215, 0, 0.2); }
+            50% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.6), 0 0 80px rgba(255, 215, 0, 0.3); }
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #FFD700, #FFA500, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 1.3em;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* Contract Address Box */
+        .ca-container {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .ca-label {
+            font-size: 0.85em;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .ca-address {
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            word-break: break-all;
+            color: #00ff88;
+            padding: 10px;
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .copy-btn {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .copy-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .copy-btn.copied {
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+        }
+
+        .copy-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* CTA Buttons */
+        .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid #FFD700;
+            color: #FFD700;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 165, 0, 0.1));
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin: 50px auto;
+            max-width: 700px;
+        }
+
+        .stats-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #00ff88;
+            margin-bottom: 10px;
+        }
+
+        .stats-label {
+            font-size: 1.1em;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+        }
+
+        .stats-sub {
+            font-size: 0.95em;
+            color: #FFD700;
+            font-style: italic;
+        }
+
+        /* Info Sections */
+        .section {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 35px 30px;
+            margin: 30px auto;
+            max-width: 700px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5em;
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section p {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 10px;
+        }
+
+        .section em {
+            color: #00ff88;
+            font-style: normal;
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            padding: 30px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9em;
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            h1 { font-size: 2em; }
-            .logo { max-width: 200px; }
+            h1 { 
+                font-size: 2.2em; 
+            }
+            .logo { 
+                width: 150px; 
+                height: 150px; 
+            }
+            .tagline {
+                font-size: 1.1em;
+            }
+            .stats-number {
+                font-size: 1.8em;
+            }
+            .ca-address {
+                font-size: 0.8em;
+            }
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+            .section h2 {
+                font-size: 1.3em;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="overlay">
-        <img src="https://pbs.twimg.com/profile_images/1995011657865814016/4Dz9qZcB.jpg" alt="DEGEN PREZ Logo" class="logo">
-        <h1>DEGEN PREZ</h1>
-        <p>A memecoin inspired to help those in need. Spreading holiday cheer, crypto gains, and real-world impact this season. Mooning for good!</p>
-        
-        <div class="ca">
-            Contract Address: D3NEEM5DPyK7cq4vQRWSnWiFxdcaUheD7NAnkNLkbonk
-        </div>
-        
-        <a href="https://jup.ag/tokens/D3NEEM5DPyK7cq4vQRWSnWiFxdcaUheD7NAnkNLkbonk" target="_blank" class="cta-button">Buy on DEX</a>
-        <a href="https://twitter.com/DegenPrezCoin" target="_blank" class="cta-button">Follow on X</a>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="https://pbs.twimg.com/profile_images/1995011657865814016/4Dz9qZcB.jpg" alt="DEGEN PREZ Logo" class="logo">
+            <h1>DEGEN PREZ</h1>
+            <p class="tagline">A memecoin inspired to help those in need. Spreading holiday cheer, crypto gains, and real-world impact. Mooning for good! 🚀</p>
+
+            <!-- Contract Address with Copy Button -->
+            <div class="ca-container">
+                <div class="ca-label">Contract Address</div>
+                <div class="ca-address" id="contractAddress">D3NEEM5DPyK7cq4vQRWSnWiFxdcaUheD7NAnkNLkbonk</div>
+                <button class="copy-btn" onclick="copyAddress()">
+                    <svg id="copyIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span id="copyText">Copy Address</span>
+                </button>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="cta-group">
+                <a href="https://jup.ag/tokens/D3NEEM5DPyK7cq4vQRWSnWiFxdcaUheD7NAnkNLkbonk" target="_blank" class="cta-button">
+                    🪐 Buy on Jupiter
+                </a>
+                <a href="https://twitter.com/DegenPrezCoin" target="_blank" class="cta-button secondary">
+                    𝕏 Follow on X
+                </a>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="stats-number">8,000,000 $DEGENPREZ</div>
+            <div class="stats-label">Already Donated to Feeding America 🍽️</div>
+            <div class="stats-sub">🎉 At 1,000 Followers on X — First Giveaway Announced!</div>
+        </section>
+
+        <!-- Roadmap Sections -->
+        <section class="section">
+            <span class="coming-soon-badge">Coming Soon</span>
+            <h2>Contests & Giveaways</h2>
+            <p>Community rewards, AMAs, NFT drops, and more ways to win while supporting a great cause.</p>
+        </section>
+
+        <section class="section">
+            <span class="coming-soon-badge">Coming Soon</span>
+            <h2>AMMs & Farming</h2>
+            <p>Community-backed AMMs where <em>you profit from farming</em>, but all LP fees go directly to charity.</p>
+            <p>Donate the LP tokens to charity organizations — DeFi for good.</p>
+        </section>
     </div>
 
-    <div class="section">
-        <h2>8,000,000.00 $DEGENPREZ COINS Already Donated To FEEDINGAMERICA</h2>
-        <p>Contests & Giveaways - AMMs - NFTs - Farms - COMING SOON</p>
-        <p><em>At 1000 Followers On X We Announce The First Giveaway</em></p>
-    </div>
-
-    <div class="section">
-        <h2>AMMs And Farming - COMING SOON</h2>
-        <p>Plans To Create Community Backed AMMs And Donate The LP Tokens To A Charity Organization.</p>
-        <p><em>Meaning You Can Still Profit Off AMMs And Farming. But All the Fees From The Community AMM go directly to charity</em></p>
-    </div>
-
-    <footer style="margin-top: auto; padding: 20px;">
-        <p>&copy; 2025 DEGEN PREZ. Built with ❤️ for the community. MIT Licensed.</p>
+    <footer>
+        <p>© 2025 DEGEN PREZ · Built with ❤️ for the community · MIT Licensed</p>
     </footer>
+
+    <script>
+        function copyAddress() {
+            const address = document.getElementById('contractAddress').innerText;
+            const btn = document.querySelector('.copy-btn');
+            const copyText = document.getElementById('copyText');
+            const copyIcon = document.getElementById('copyIcon');
+            
+            navigator.clipboard.writeText(address).then(() => {
+                // Visual feedback
+                btn.classList.add('copied');
+                copyText.innerText = 'Copied!';
+                copyIcon.innerHTML = '<polyline points="20 6 9 17 4 12"></polyline>';
+                
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    copyText.innerText = 'Copy Address';
+                    copyIcon.innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>';
+                }, 2000);
+            }).catch(err => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = address;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                btn.classList.add('copied');
+                copyText.innerText = 'Copied!';
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    copyText.innerText = 'Copy Address';
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>
